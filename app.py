@@ -220,4 +220,33 @@ def question(tafel, factor):
 
 question(ss.tafel, ss.factor)
 
+components.html(
+    """
+    <script>
+    const applyNumeric = () => {
+      const el = window.parent.document.querySelector('input[aria-label="Antwoord"]');
+      if (!el) return false;
 
+      el.setAttribute('inputmode', 'numeric');
+      el.setAttribute('pattern', '[0-9]*');
+      el.setAttribute('autocomplete', 'off');
+
+      // Optional: keep only digits (still validate server-side!)
+      el.addEventListener('input', () => {
+        const cleaned = el.value.replace(/[^0-9]/g, '');
+        if (el.value !== cleaned) el.value = cleaned;
+      }, { once: true });
+
+      return true;
+    };
+
+    let tries = 0;
+    const t = setInterval(() => {
+      tries += 1;
+      if (applyNumeric() || tries > 40) clearInterval(t);
+    }, 50);
+    </script>
+    """,
+    height=0,
+    scrolling=False,
+)
