@@ -194,17 +194,16 @@ def question(tafel, factor):
 
     with st.form("answer_form"):
         key = f"antwoord_{st.session_state.input_key}"
-        st.number_input(
+        answer = st.number_input(
             "Antwoord",
-            key=key,
             value=None,              # starts empty
             min_value=0,
             step=1,
             format="%d",
             label_visibility="collapsed",
         )
-        st.write(st.session_state[key])
+        st.write(answer)
         if st.form_submit_button("Check"):
-            check_answer(st.session_state[key], tafel, factor)
+            check_answer(answer, tafel, factor)
 
 question(ss.tafel, ss.factor)
