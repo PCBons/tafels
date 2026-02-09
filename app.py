@@ -28,6 +28,7 @@ GIFS = [
 # ----------------------------
 st.session_state.setdefault("tafel", 2)
 st.session_state.setdefault("factor", random.randint(1, 10))
+ss.setdefault('sticker_5', random.sample(STICKERS, 5))
 st.session_state.setdefault("stickers", 0)
 
 st.session_state.setdefault("feedback", None)
@@ -48,6 +49,7 @@ def new_problem():
 
 def reset_game():
     st.session_state.stickers = 0
+    ss.sticker_5 = random.sample(STICKERS, 5)
     st.session_state.feedback = None
     st.session_state.show_answer = None
     st.session_state.celebrate = False
@@ -57,6 +59,7 @@ def reset_game():
 
 def reset_game2():
     st.session_state.stickers = 0
+    ss.sticker_5 = random.sample(STICKERS, 5)
     st.session_state.feedback = None
     st.session_state.show_answer = None
     st.session_state.celebrate = False
@@ -140,7 +143,7 @@ st.sidebar.selectbox(
 # ----------------------------
 circles = '<div class="circle-row">'
 for i in range(5):
-    circles += f"<div class='circle'>{STICKERS[i] if i < st.session_state.stickers else ''}</div>"
+    circles += f"<div class='circle'>{ss.sticker_5[i] if i < st.session_state.stickers else ''}</div>"
 circles += "</div>"
 st.markdown(circles, unsafe_allow_html=True)
 
