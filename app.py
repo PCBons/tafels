@@ -11,6 +11,7 @@ STICKERS = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "�
 
 GIFS = [ 
     "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemwwZXVlOXprZHpoenl6dDU4c2FnZXZ3dmQ3MmduY2sydmZwcGN5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3UkqVq3F50bVCi9URl/giphy.gif",
+    "https://github.com/PCBons/tafels/blob/main/gifs/ezgif-668e3c8cd96be53a.gif",
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTY4NHNxbHlucTc1aG5zdDM0eDN2N3FibGpmNHQwZmR6amV3bGJmYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pAHAgWYYjWIE9DNLcC/giphy.gif",
     "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXNnZXFuenYzcWo5Yzc4dmliYjU0NDliY2Rnc3FmMHZsb252MjI3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tv4wFKOCoF11QNrn39/giphy.gif",
     "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWJkcXQzMDVmMjNpN3BmaWpzN3NyYm5oNWZiejhkbDVwNWlhbnU0dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/auGFCmg6rM0eI/giphy.gif",
@@ -26,9 +27,10 @@ GIFS = [
 # ----------------------------
 # Session state
 # ----------------------------
-st.session_state.setdefault("tafel", 2)
+st.session_state.setdefault("tafel", 3)
 st.session_state.setdefault("factor", random.randint(1, 10))
 ss.setdefault('sticker_5', random.sample(STICKERS, 5))
+ss.setdefault('gifs_shuffle', random.sample(GIFS, len(GIFS)))
 st.session_state.setdefault("stickers", 0)
 
 st.session_state.setdefault("feedback", None)
@@ -50,20 +52,22 @@ def new_problem():
 def reset_game():
     st.session_state.stickers = 0
     ss.sticker_5 = random.sample(STICKERS, 5)
+    #ss.gifs_shuffle = random.sample(GIFS, len(GIFS))
     st.session_state.feedback = None
     st.session_state.show_answer = None
     st.session_state.celebrate = False
-    st.session_state.gif_i = (st.session_state.gif_i + 1) % len(GIFS)
+    st.session_state.gif_i = (st.session_state.gif_i + 1) % len(ss.gifs_shuffle)
     st.session_state.factor = random.randint(1, 10)
     st.session_state.input_key += 1
 
 def reset_game2():
     st.session_state.stickers = 0
     ss.sticker_5 = random.sample(STICKERS, 5)
+    #ss.gifs_shuffle = random.sample(GIFS, len(GIFS))
     st.session_state.feedback = None
     st.session_state.show_answer = None
     st.session_state.celebrate = False
-    st.session_state.gif_i = (st.session_state.gif_i + 1) % len(GIFS)
+    st.session_state.gif_i = (st.session_state.gif_i + 1) % len(ss.gifs_shuffle)
     st.session_state.factor = random.randint(1, 10)
     st.session_state.input_key += 1
     st.rerun()
@@ -171,7 +175,7 @@ def feest(correct):
     st.success("Goed zo!")  # Create a success alert
     st.info(f"Het goede antwoord was: **{correct}**")
     st.balloons()
-    st.image(GIFS[st.session_state.gif_i])
+    st.image(ss.gifs_shuffle[st.session_state.gif_i])
     if st.button("Nieuwe ronde ▶️"):
         reset_game2()
 
@@ -188,65 +192,17 @@ def question(tafel, factor):
 
     with st.form("answer_form"):
         key = f"antwoord_{st.session_state.input_key}"
-        st.text_input("Antwoord", key=key, label_visibility="collapsed")
-        components.html(
-            """
-            <script>
-            const setNumeric = () => {
-            // Find the input that was just rendered (usually last text input)
-            const inputs = window.parent.document.querySelectorAll('input[type="text"]');
-            if (!inputs || inputs.length === 0) return false;
-
-            const el = inputs[inputs.length - 1];
-            el.setAttribute('inputmode', 'numeric');
-            el.setAttribute('pattern', '[0-9]*');
-            el.setAttribute('autocomplete', 'off');
-            return true;
-            };
-
-            let tries = 0;
-            const t = setInterval(() => {
-            tries += 1;
-            if (setNumeric() || tries > 20) clearInterval(t);
-            }, 50);
-            </script>
-            """,
-            height=10,
-            #scrolling=False,
+        ans = st.number_input(
+            "Antwoord",
+            key=key,
+            value=None,              # starts empty
+            min_value=0,
+            step=1,
+            format="%d",
+            label_visibility="collapsed",
         )
-
+        
         if st.form_submit_button("Check"):
             check_answer(st.session_state[key], tafel, factor)
 
 question(ss.tafel, ss.factor)
-
-components.html(
-    """
-    <script>
-    const applyNumeric = () => {
-      const el = window.parent.document.querySelector('input[aria-label="Antwoord"]');
-      if (!el) return false;
-
-      el.setAttribute('inputmode', 'numeric');
-      el.setAttribute('pattern', '[0-9]*');
-      el.setAttribute('autocomplete', 'off');
-
-      // Optional: keep only digits (still validate server-side!)
-      el.addEventListener('input', () => {
-        const cleaned = el.value.replace(/[^0-9]/g, '');
-        if (el.value !== cleaned) el.value = cleaned;
-      }, { once: true });
-
-      return true;
-    };
-
-    let tries = 0;
-    const t = setInterval(() => {
-      tries += 1;
-      if (applyNumeric() || tries > 40) clearInterval(t);
-    }, 50);
-    </script>
-    """,
-    height=0,
-    scrolling=False,
-)
