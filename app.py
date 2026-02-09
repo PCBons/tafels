@@ -11,7 +11,7 @@ STICKERS = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "�
 
 GIFS = [ 
     "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemwwZXVlOXprZHpoenl6dDU4c2FnZXZ3dmQ3MmduY2sydmZwcGN5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3UkqVq3F50bVCi9URl/giphy.gif",
-    "https://github.com/PCBons/tafels/blob/main/gifs/ezgif-668e3c8cd96be53a.gif",
+    "http://raw.githubusercontent.com/PCBons/tafels/refs/heads/main/gifs/ezgif-668e3c8cd96be53a.gif",
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTY4NHNxbHlucTc1aG5zdDM0eDN2N3FibGpmNHQwZmR6amV3bGJmYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pAHAgWYYjWIE9DNLcC/giphy.gif",
     "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXNnZXFuenYzcWo5Yzc4dmliYjU0NDliY2Rnc3FmMHZsb252MjI3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tv4wFKOCoF11QNrn39/giphy.gif",
     "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWJkcXQzMDVmMjNpN3BmaWpzN3NyYm5oNWZiejhkbDVwNWlhbnU0dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/auGFCmg6rM0eI/giphy.gif",
