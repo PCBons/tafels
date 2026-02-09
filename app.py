@@ -19,7 +19,6 @@ GIFS = [
     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnc0Z3dlczA0cjVkZ29tdGQzNzR1OWNidmRlNDE3YmY5aGZ0ZWUwdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ewzF6uunnPn6L5amuW/giphy.gif",
     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2M4ZzA3emR3a2Vzano3MW95MWx2MDZtbzdtbTNzMGV3ZnY3enowbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hwaFAsPi7wU6LHwn84/giphy.gif",
     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXJweWEyOGZyb3Z3NTFtbXFscm9weHh6ZHZsb2dmZThoejAxdzllYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jp2KXzsPtoKFG/giphy.gif",
-    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzJrN29veWtudXJjenZ1bm55emdmcmlsNWo3anExaHQ5ZmxkZTg0YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbKLOdvCxBFNZpYvhL/giphy.gif",
     "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemhuNWtwdHIyeWpzNzFrenc5Z3NrNm00Mm90djNpb2YzcHlwOW5tdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZrkDWOSI2WHndH4bDk/giphy.gif",
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXpxMjFxYWtleWVwbjh5OXJ1dWtnamR0bncxYmRkOHIzcTc4NHRoeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/j6N49PBSQ5jYk/giphy.gif"
 ]
