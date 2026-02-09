@@ -79,6 +79,7 @@ def check_answer(answer, tafel, factor):
     except Exception:
         answer = None
     
+    st.write(answer, correct)
     correct = tafel * factor
 
     show_answer = f"{tafel} × {factor} = {correct}"
