@@ -1,17 +1,26 @@
 import random
 import streamlit as st
 import time
+import streamlit.components.v1 as components
 
 ss = st.session_state
 
 st.set_page_config(page_title="Tafels oefenen", page_icon="🧮", layout="centered")
 
-
-
 STICKERS = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐸", "🦄"]
 
 GIFS = [ 
     "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemwwZXVlOXprZHpoenl6dDU4c2FnZXZ3dmQ3MmduY2sydmZwcGN5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3UkqVq3F50bVCi9URl/giphy.gif",
+    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTY4NHNxbHlucTc1aG5zdDM0eDN2N3FibGpmNHQwZmR6amV3bGJmYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pAHAgWYYjWIE9DNLcC/giphy.gif",
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXNnZXFuenYzcWo5Yzc4dmliYjU0NDliY2Rnc3FmMHZsb252MjI3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tv4wFKOCoF11QNrn39/giphy.gif",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWJkcXQzMDVmMjNpN3BmaWpzN3NyYm5oNWZiejhkbDVwNWlhbnU0dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/auGFCmg6rM0eI/giphy.gif",
+    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaW44M29vdzhxMGhzNWxqdGQwdTJlNTdjbzB3dDJmajd0eXluZ2pmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/knLRouBQlkniWmx0hp/giphy.gif",
+    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnc0Z3dlczA0cjVkZ29tdGQzNzR1OWNidmRlNDE3YmY5aGZ0ZWUwdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ewzF6uunnPn6L5amuW/giphy.gif",
+    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2M4ZzA3emR3a2Vzano3MW95MWx2MDZtbzdtbTNzMGV3ZnY3enowbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hwaFAsPi7wU6LHwn84/giphy.gif",
+    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXJweWEyOGZyb3Z3NTFtbXFscm9weHh6ZHZsb2dmZThoejAxdzllYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jp2KXzsPtoKFG/giphy.gif",
+    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzJrN29veWtudXJjenZ1bm55emdmcmlsNWo3anExaHQ5ZmxkZTg0YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbKLOdvCxBFNZpYvhL/giphy.gif",
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemhuNWtwdHIyeWpzNzFrenc5Z3NrNm00Mm90djNpb2YzcHlwOW5tdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZrkDWOSI2WHndH4bDk/giphy.gif",
+    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXpxMjFxYWtleWVwbjh5OXJ1dWtnamR0bncxYmRkOHIzcTc4NHRoeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/j6N49PBSQ5jYk/giphy.gif"
 ]
 
 # ----------------------------
@@ -68,12 +77,12 @@ def check_answer(answer, tafel, factor):
     show_answer = f"{tafel} × {factor} = {correct}"
 
 
-    if (answer == correct) & (ss.stickers >= 10):
+    if (answer == correct) & (ss.stickers >= 5):
         feest(correct)
 
     elif answer == correct:
         goed(correct)
-        st.session_state.stickers = min(10, st.session_state.stickers + 1)
+        st.session_state.stickers = min(5, st.session_state.stickers + 1)
         new_problem()
     else:
         verkeerd(correct)
@@ -130,7 +139,7 @@ st.sidebar.selectbox(
 # Stickers (outside fragment!)
 # ----------------------------
 circles = '<div class="circle-row">'
-for i in range(10):
+for i in range(5):
     circles += f"<div class='circle'>{STICKERS[i] if i < st.session_state.stickers else ''}</div>"
 circles += "</div>"
 st.markdown(circles, unsafe_allow_html=True)
@@ -142,17 +151,16 @@ st.markdown(circles, unsafe_allow_html=True)
 @st.dialog(title = 'Oeps')
 def verkeerd(correct):
     container = st.empty()
-    container.error("Oh nee")  # Create a success alert
-    container.info(f"Het goede antwoord was: **{correct}**")
-    time.sleep(1)  # Wait 2 seconds
+    container.error(f"Oh nee, die was fout. Het goede antwoord was: **{correct}**")  # Create a success alert
+    time.sleep(2)  # Wait 2 seconds
     container.empty()
 
 @st.dialog(title = 'Goed zo!')
 def goed(correct):
     container = st.empty()
-    container.success("Goed zo!")  # Create a success alert
-    container.info(f"Het goede antwoord was: **{correct}**")
-    time.sleep(1)  # Wait 2 seconds
+    container.success("Dat was het goede antwoord!")  # Create a success alert
+    #container.info(f"Het goede antwoord was: **{correct}**")
+    time.sleep(2)  # Wait 2 seconds
     container.empty()
 
 @st.dialog(title = 'Hoera!')
@@ -178,6 +186,50 @@ def question(tafel, factor):
     with st.form("answer_form"):
         key = f"antwoord_{st.session_state.input_key}"
         st.text_input("Antwoord", key=key, label_visibility="collapsed")
+        # components.html(
+        #     """
+        #     <script>
+        #     const tryFocus = () => {
+        #     const inputs = window.parent.document.querySelectorAll('input[type="text"]');
+        #     if (!inputs || inputs.length === 0) return false;
+
+        #     // pick the biggest text input (your answer box)
+        #     let best = inputs[0];
+        #     for (const el of inputs) {
+        #         if ((el.offsetHeight || 0) > (best.offsetHeight || 0)) best = el;
+        #     }
+
+        #     // numeric keyboard hints
+        #     best.setAttribute('inputmode', 'numeric');
+        #     best.setAttribute('pattern', '[0-9]*');
+        #     best.setAttribute('autocomplete', 'off');
+        #     best.setAttribute('autocapitalize', 'off');
+        #     best.setAttribute('spellcheck', 'false');
+
+        #     // ✅ make the input BOX bigger (not whitespace)
+        #     best.style.fontSize = "42px";
+        #     best.style.height = "96px";
+        #     best.style.lineHeight = "96px";
+        #     best.style.padding = "0 16px";
+        #     best.style.textAlign = "center";
+        #     best.style.boxSizing = "border-box";
+
+        #     best.focus();
+        #     best.select();
+        #     return true;
+        #     };
+
+        #     let attempts = 0;
+        #     const timer = setInterval(() => {
+        #     attempts += 1;
+        #     if (tryFocus() || attempts > 20) clearInterval(timer);
+        #     }, 50);
+        #     </script>
+        #     """,
+        #     height=0,
+        #     scrolling=False,
+        # )
+
         if st.form_submit_button("Check"):
             check_answer(st.session_state[key], tafel, factor)
 
