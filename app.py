@@ -172,7 +172,7 @@ st.markdown(circles, unsafe_allow_html=True)
 def verkeerd(correct):
     container = st.empty()
     container.error(f"Oh nee, die was fout. Het goede antwoord was: **{correct}**")  # Create a success alert
-    time.sleep(2)  # Wait 2 seconds
+    time.sleep(5)  # Wait 5 seconds
     container.empty()
 
 @st.dialog(title = 'Goed zo!')
@@ -186,7 +186,6 @@ def goed(correct):
 @st.dialog(title = 'Hoera!')
 def feest(correct):
     st.success("Goed zo!")  # Create a success alert
-    st.info(f"Het goede antwoord was: **{correct}**")
     st.balloons()
     st.image(ss.gifs_shuffle[st.session_state.gif_i])
     if st.button("Nieuwe ronde ▶️"):
