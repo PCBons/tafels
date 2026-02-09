@@ -177,7 +177,7 @@ def feest(correct):
 
 
 # ----------------------------
-# QUESTION FRAGMENT
+# QUESTION 
 # ----------------------------
 def question(tafel, factor):
     st.markdown(
@@ -189,49 +189,31 @@ def question(tafel, factor):
     with st.form("answer_form"):
         key = f"antwoord_{st.session_state.input_key}"
         st.text_input("Antwoord", key=key, label_visibility="collapsed")
-        # components.html(
-        #     """
-        #     <script>
-        #     const tryFocus = () => {
-        #     const inputs = window.parent.document.querySelectorAll('input[type="text"]');
-        #     if (!inputs || inputs.length === 0) return false;
+        components.html(
+            """
+            <script>
+            const setNumeric = () => {
+            // Find the input that was just rendered (usually last text input)
+            const inputs = window.parent.document.querySelectorAll('input[type="text"]');
+            if (!inputs || inputs.length === 0) return false;
 
-        #     // pick the biggest text input (your answer box)
-        #     let best = inputs[0];
-        #     for (const el of inputs) {
-        #         if ((el.offsetHeight || 0) > (best.offsetHeight || 0)) best = el;
-        #     }
+            const el = inputs[inputs.length - 1];
+            el.setAttribute('inputmode', 'numeric');
+            el.setAttribute('pattern', '[0-9]*');
+            el.setAttribute('autocomplete', 'off');
+            return true;
+            };
 
-        #     // numeric keyboard hints
-        #     best.setAttribute('inputmode', 'numeric');
-        #     best.setAttribute('pattern', '[0-9]*');
-        #     best.setAttribute('autocomplete', 'off');
-        #     best.setAttribute('autocapitalize', 'off');
-        #     best.setAttribute('spellcheck', 'false');
-
-        #     // ✅ make the input BOX bigger (not whitespace)
-        #     best.style.fontSize = "42px";
-        #     best.style.height = "96px";
-        #     best.style.lineHeight = "96px";
-        #     best.style.padding = "0 16px";
-        #     best.style.textAlign = "center";
-        #     best.style.boxSizing = "border-box";
-
-        #     best.focus();
-        #     best.select();
-        #     return true;
-        #     };
-
-        #     let attempts = 0;
-        #     const timer = setInterval(() => {
-        #     attempts += 1;
-        #     if (tryFocus() || attempts > 20) clearInterval(timer);
-        #     }, 50);
-        #     </script>
-        #     """,
-        #     height=0,
-        #     scrolling=False,
-        # )
+            let tries = 0;
+            const t = setInterval(() => {
+            tries += 1;
+            if (setNumeric() || tries > 20) clearInterval(t);
+            }, 50);
+            </script>
+            """,
+            height=10,
+            #scrolling=False,
+        )
 
         if st.form_submit_button("Check"):
             check_answer(st.session_state[key], tafel, factor)
