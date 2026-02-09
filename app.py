@@ -80,8 +80,6 @@ def check_answer(answer, tafel, factor):
         answer = None
     
     correct = tafel * factor
-    st.write(answer, correct)
-    
 
     show_answer = f"{tafel} × {factor} = {correct}"
 
@@ -203,7 +201,6 @@ def question(tafel, factor):
             format="%d",
             label_visibility="collapsed",
         )
-        st.write(ss[key])
         if st.form_submit_button("Check"):
             check_answer(ss[key], tafel, factor)
 
