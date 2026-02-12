@@ -10,6 +10,7 @@ st.set_page_config(page_title="Tafels oefenen", page_icon="🧮", layout="center
 STICKERS = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐸", "🦄"]
 
 GIFS = [ 
+    "https://cataas.com/cat/gif",
     "https://raw.githubusercontent.com/PCBons/tafels/refs/heads/main/gifs/ezgif-3fa7f2a99bc4d8aa.gif",
     "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemwwZXVlOXprZHpoenl6dDU4c2FnZXZ3dmQ3MmduY2sydmZwcGN5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3UkqVq3F50bVCi9URl/giphy.gif",
     "http://raw.githubusercontent.com/PCBons/tafels/refs/heads/main/gifs/ezgif-668e3c8cd96be53a.gif",
@@ -35,7 +36,13 @@ GIFS = [
     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm9maGxycW9tOHptYnA3eHMxNjk5eTk5MW5jc3kwNHVha3c1NXJqbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hQnhJO7sTUtufxxY0L/giphy.gif",
     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzN0bjNkemlqaGlmbWx4ejYyOHBwa284eGh6czk5ZHduMmZjanpidSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bnOIY81AEMa4llyfFI/giphy.gif",
     "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW5kNnZpOG00aWNmNGJwdW5hdWx1ZjFuNmhzbmhra2VrdW1xZzQ1ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KyYIA8dlA6x6hLGrbn/giphy.gif",
-    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzM0anE1aWNoanlvNGl4cmptdHYyMXFndjJ3aDM2cGU1YjRodnpxcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rZ7A5ayCa2zVcMgsvl/giphy.gif"
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzM0anE1aWNoanlvNGl4cmptdHYyMXFndjJ3aDM2cGU1YjRodnpxcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rZ7A5ayCa2zVcMgsvl/giphy.gif",
+    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3lhY3p6ZXFyZnRrdmV3aXZvbHhlbTlnZ3FzcmNndjlocDBiaTBpdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7NNqJw0T3cb62PMzXR/giphy.gif",
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExajh4Y2R2eTJmZWFrZDdtZHgza2xlNXJtNGduNjJpdjh2bXNzaWl1eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/u7bymITK1tbP3tSAEg/giphy.gif",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDQxcjI4YjN3bHQ2ZXNndHR5eGFhaGc3Zzc3YmdibnZycDMwemlzeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LRgJfEddZxbYeOIeru/giphy.gif",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDE4cWtyNDVtb3dhYXF1aGY5MDdzMDU5aGY3MG82eDk3bDN2a2hrZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YOMXLnRL5MJidjrvYH/giphy.gif",
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXM5ZmZpYWt2czd5c255aWoxZzc4c3p6Z2tocnJ6ZmpkMTh5OXd2MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ybv6IEqXHeRdXd84eH/giphy.gif",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3U1dWs4ZWoyNnVvNmdlZmhucXh1M3VxbGhpdndtajE3eTY4ZXg2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aWpSIlUoSvcNa/giphy.gif"
 ]
 
 # ----------------------------
