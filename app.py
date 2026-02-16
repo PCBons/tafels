@@ -7,7 +7,7 @@ ss = st.session_state
 
 st.set_page_config(page_title="Tafels oefenen", page_icon="🧮", layout="centered")
 
-STICKERS = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐸", "🦄"]
+STICKERS = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐸", "🦄", "💩","🦔"]
 
 GIFS = [ 
     "https://cataas.com/cat/gif",
