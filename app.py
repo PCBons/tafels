@@ -5,7 +5,7 @@ import streamlit.components.v1 as components
 
 ss = st.session_state
 
-st.set_page_config(page_title="Tafels oefenen 2", page_icon="🧮", layout="centered")
+st.set_page_config(page_title="Tafels oefenen", page_icon="🧮", layout="centered")
 
 STICKERS = [
     "🐶", "🐱", "🐭", "🐹", "🐰",
